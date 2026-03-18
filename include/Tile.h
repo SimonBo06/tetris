@@ -24,6 +24,13 @@ enum Rotation
     R270
 };
 
+enum Direction
+{
+    LEFT,
+    RIGHT,
+    DOWN
+};
+
 class Tile
 {
 public:
@@ -34,11 +41,13 @@ public:
     int col;
     int row;
     void build_tile();
+    void rotate_tile();
+    void move_tile(Direction dir);
     std::bitset<BOARD_WIDTH * BOARD_HEIGHT> bit_map;
 
 private:
-    void rotate_tile();
-    void move_tile();
+    std::bitset<BOARD_WIDTH * BOARD_HEIGHT> m_left_border_mask;
+    std::bitset<BOARD_WIDTH * BOARD_HEIGHT> m_right_border_mask;
 };
 
 #endif // TILE_H

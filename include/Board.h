@@ -18,6 +18,7 @@ private:
     // static const int BOARD_WIDTH = 10;
     // static const int BOARD_HEIGHT = 20;
     std::bitset<BOARD_WIDTH * BOARD_HEIGHT> m_grid;
+    std::bitset<BOARD_WIDTH * BOARD_HEIGHT> m_current_tile;
 };
 
 #endif // BOARD_H
