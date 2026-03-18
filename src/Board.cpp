@@ -43,7 +43,7 @@ void Board::draw() const
     printf("\n");
 }
 
-void Board::update_board(const std::bitset<BOARD_WIDTH * BOARD_HEIGHT> &tile_map)
+void Board::update(const std::bitset<BOARD_WIDTH * BOARD_HEIGHT> &tile_map)
 {
     m_current_tile = tile_map;
     draw();

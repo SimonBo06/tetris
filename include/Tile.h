@@ -31,15 +31,21 @@ enum Direction
     DOWN
 };
 
+enum Locked
+{
+    UNLOCKED,
+    HALF_LOCKED,
+    LOCKED
+};
+
 class Tile
 {
 public:
-    Tile(TileType t, Rotation r, int c, int ro);
+    Tile(TileType t, Rotation r);
+    Tile();
     ~Tile();
     Rotation rot;
     TileType type;
-    int col;
-    int row;
     void build_tile();
     void rotate_tile();
     void move_tile(Direction dir);
@@ -48,6 +54,7 @@ public:
 private:
     std::bitset<BOARD_WIDTH * BOARD_HEIGHT> m_left_border_mask;
     std::bitset<BOARD_WIDTH * BOARD_HEIGHT> m_right_border_mask;
+    Locked lock_state = UNLOCKED;
 };
 
 #endif // TILE_H

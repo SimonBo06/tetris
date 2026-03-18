@@ -12,7 +12,7 @@ public:
     ~Board();
     void draw() const;
     void reset();
-    void update_board(const std::bitset<BOARD_WIDTH * BOARD_HEIGHT> &tile_map);
+    void update(const std::bitset<BOARD_WIDTH * BOARD_HEIGHT> &tile_map);
 
 private:
     // static const int BOARD_WIDTH = 10;

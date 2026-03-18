@@ -1,6 +1,18 @@
 #include "../include/Tile.h"
+#include "../include/Random.h"
 
-Tile::Tile(TileType t, Rotation r, int c, int ro) : type(t), rot(r), col(c), row(ro)
+Tile::Tile(TileType t, Rotation r) : type(t), rot(r)
+{
+    for (int i = 0; i < BOARD_WIDTH * BOARD_HEIGHT; ++i)
+    {
+        if (i % BOARD_WIDTH == 0)
+            m_left_border_mask.set(i);
+        if (i % BOARD_WIDTH == (BOARD_WIDTH - 1))
+            m_right_border_mask.set(i);
+    }
+}
+
+Tile::Tile() : type(static_cast<TileType>(tile_dist(gen))), rot(static_cast<Rotation>(rot_dist(gen)))
 {
     for (int i = 0; i < BOARD_WIDTH * BOARD_HEIGHT; ++i)
     {
