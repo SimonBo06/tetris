@@ -8,7 +8,7 @@ SRC_DIR = src
 INCLUDE_DIR =include
 BUILD_DIR =build
 BIN_DIR =bin
-TARGET =$(BIN_DIR)/snake
+TARGET =$(BIN_DIR)/tetris
 
 # Include paths  
 INCLUDES = -I$(INCLUDE_DIR)
