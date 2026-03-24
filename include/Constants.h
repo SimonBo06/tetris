@@ -4,4 +4,6 @@
 #define BOARD_WIDTH 10
 #define BOARD_HEIGHT 20
 
+#define GRID_SIZE (BOARD_WIDTH * BOARD_HEIGHT)
+
 #endif // CONSTANTS_H
