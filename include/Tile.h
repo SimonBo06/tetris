@@ -5,7 +5,8 @@
 
 #include <bitset>
 
-enum TileType {
+enum TileType
+{
     I,
     O,
     T,
@@ -15,27 +16,31 @@ enum TileType {
     L
 };
 
-enum Rotation {
+enum Rotation
+{
     R0,
     R90,
     R180,
     R270
 };
 
-enum Direction {
+enum Direction
+{
     LEFT,
     RIGHT,
     DOWN
 };
 
-enum Locked {
+enum Locked
+{
     UNLOCKED,
     HALF_LOCKED,
     LOCKED
 };
 
-class Tile {
-  public:
+class Tile
+{
+public:
     Tile(TileType t, Rotation r);
     Tile();
     ~Tile();
@@ -46,11 +51,12 @@ class Tile {
     void move_tile(Direction dir, std::bitset<GRID_SIZE> &bit_map);
     std::bitset<GRID_SIZE> m_bit_map;
 
-  private:
+private:
     std::bitset<GRID_SIZE> m_left_border_mask;
     std::bitset<GRID_SIZE> m_right_border_mask;
     std::bitset<GRID_SIZE> m_bottom_border_mask;
     Locked m_lock_state = UNLOCKED;
+    int m_shift = 0;
 };
 
 #endif // TILE_H
